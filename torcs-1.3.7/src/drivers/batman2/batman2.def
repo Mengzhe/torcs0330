@@ -1,0 +1,19 @@
+;
+;   file                 : batman2.def
+;   created              : Thu Mar 30 12:03:26 EDT 2017
+;   copyright            : (C) 2002 mh
+;
+;
+;    This program is free software; you can redistribute it and/or modify
+;    it under the terms of the GNU General Public License as published by
+;    the Free Software Foundation; either version 2 of the License, or   
+;    (at your option) any later version.                                 
+;
+
+LIBRARY	batman2
+
+SECTIONS .data READ WRITE
+
+EXPORTS
+	batman2
+
