@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
     file                 : batman.xml
-    created              : Sat Apr 1 13:05:42 EDT 2017
+    created              : Tue Apr 4 22:52:38 EDT 2017
     copyright            : (C) 2002 mh
 -->
 
@@ -11,21 +11,54 @@
 <!--    (at your option) any later version.                                   -->
 
 <!DOCTYPE params SYSTEM "../../libs/tgf/params.dtd">
+
 <params name="batman" type="robotdef">
   <section name="Robots">
     <section name="index">
-      <section name="1">
-	<attstr name="name" val="batman"></attstr>
-	<attstr name="desc" val=""></attstr>
-	<attstr name="team" val=""></attstr>
-	<attstr name="author" val="mh"></attstr>
-	<attstr name="car name" val="155-DTM"></attstr>
-	<attstr name="category" val="Track-4WD-GrB"></attstr>
-	<attnum name="race number" val="0"></attnum>
-	<attnum name="red" val="1.0"></attnum>
-	<attnum name="green" val="1.0"></attnum>
-	<attnum name="blue" val="1.0"></attnum>
-      </section>
+    
+      <section name="0">  	//defines the index of the robot
+	     <attstr name="name" val="batman 1"></attstr> 	//name of robot
+	     <attstr name="desc" val=""></attstr> 	//description of robot
+	     <attstr name="team" val="batman"></attstr> 	//your team name
+	     <attstr name="author" val="mh"></attstr> 	//your author name
+	     <attstr name="car name" val="155-DTM"></attstr> 	//car model to use
+	     <attstr name="category" val="Track-4WD-GrB"></attstr>
+	     <attnum name="race number" val="23"></attnum> 	//racing number
+	     //color of the drivers entry in the leaders board
+	     <attnum name="red" val="1.0"></attnum> 		
+	     <attnum name="green" val="1.0"></attnum> 	
+	     <attnum name="blue" val="1.0"></attnum>		
+       </section>
+
+       <section name="1">  	//defines the index of the robot
+	     <attstr name="name" val="batman 2"></attstr> 	//name of robot
+	     <attstr name="desc" val=""></attstr> 	//description of robot
+	     <attstr name="team" val="batman"></attstr> 	//your team name
+	     <attstr name="author" val="mh"></attstr> 	//your author name
+	     <attstr name="car name" val="kc-corvette-ttop"></attstr> 	//car model to use
+	     <attstr name="category" val="Track-4WD-GrB"></attstr>
+	     <attnum name="race number" val="4"></attnum> 	//racing number
+	     //color of the drivers entry in the leaders board
+	     <attnum name="red" val="1.0"></attnum> 		
+	     <attnum name="green" val="1.0"></attnum> 	
+	     <attnum name="blue" val="1.0"></attnum>		
+       </section>
+
+       <section name="2">  	//defines the index of the robot
+	     <attstr name="name" val="batman 3"></attstr> 	//name of robot
+	     <attstr name="desc" val=""></attstr> 	//description of robot
+	     <attstr name="team" val="batman"></attstr> 	//your team name
+	     <attstr name="author" val="mh"></attstr> 	//your author name
+	     <attstr name="car name" val="pw-306wrc"></attstr> 	//car model to use
+	     <attstr name="category" val="Track-4WD-GrB"></attstr>
+	     <attnum name="race number" val="3"></attnum> 	//racing number
+	     //color of the drivers entry in the leaders board
+	     <attnum name="red" val="1.0"></attnum> 		
+	     <attnum name="green" val="1.0"></attnum> 	
+	     <attnum name="blue" val="1.0"></attnum>		
+       </section>
+
     </section>
   </section>
 </params>
+

@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    file                 : Makefile
-#    created              : Sat Apr 1 13:05:42 EDT 2017
+#    created              : Tue Apr 4 22:52:38 EDT 2017
 #    copyright            : (C) 2002 mh
 #
 ##############################################################################
@@ -16,7 +16,7 @@
 ROBOT       = batman
 MODULE      = ${ROBOT}.so
 MODULEDIR   = drivers/${ROBOT}
-SOURCES     = ${ROBOT}.cpp
+SOURCES     = ${ROBOT}.cpp driver.cpp
 
 SHIPDIR     = drivers/${ROBOT}
 SHIP        = ${ROBOT}.xml 155-DTM.rgb logo.rgb
