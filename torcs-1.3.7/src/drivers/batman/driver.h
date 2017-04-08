@@ -35,6 +35,8 @@ class Driver
         bool isStuck(tCarElt* car);
         void update(tCarElt* car, tSituation *s);
 
+        int getGear(tCarElt *car); 
+
         
 
 	/* per robot global data */
@@ -57,6 +59,9 @@ class Driver
 
         static const float G;
         static const float FULL_ACCEL_MARGIN;
+
+        static const float SHIFT;
+        static const float SHIFT_MARGIN; 
         
         /* track variables */
         tTrack* track;

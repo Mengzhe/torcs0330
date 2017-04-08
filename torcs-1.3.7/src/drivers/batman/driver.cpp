@@ -10,6 +10,9 @@ const float Driver::MIN_UNSTUCK_DIST = 3.0;    /* [m] */
 const float Driver::G = 9.81;                  /* [m/(s*s)] */
 const float Driver::FULL_ACCEL_MARGIN = 1.0;   /* [m/s] */
 
+const float Driver::SHIFT = 0.9;         /* [-] (% of rpmredline) */
+const float Driver::SHIFT_MARGIN = 4.0;  /* [m/s] */ 
+
 Driver::Driver(int index)
 {
     INDEX = index;
@@ -52,7 +55,10 @@ void Driver::drive(tCarElt* car, tSituation *s)
         float steerangle = angle - car->_trkPos.toMiddle/car->_trkPos.seg->width;
 
         car->ctrl.steer = steerangle / car->_steerLock;
-        car->ctrl.gear = 3; // first gear
+        // car->ctrl.gear = 3; // first gear
+        car->ctrl.gear = getGear(car); 
+
+        
         //car->ctrl.accelCmd = 0.3; // 30% accelerator pedal
         //car->ctrl.brakeCmd = 0.0; // no brakes
         car->ctrl.brakeCmd = getBrake(car);
@@ -167,3 +173,31 @@ float Driver::getBrake(tCarElt* car)
     }
     return 0.0;
 } 
+
+/* Compute gear */
+int Driver::getGear(tCarElt *car)
+{
+    /* shift to the first gear, if in neutral or reverse */
+    if (car->_gear <= 0) return 1;  
+    float gr_up = car->_gearRatio[car->_gear + car->_gearOffset];
+    float omega = car->_enginerpmRedLine/gr_up;
+    float wr = car->_wheelRadius(2);
+    /* shift up if allowed speed for the current gear (omega*wr*SHIFT) is exceeded */
+    if (omega*wr*SHIFT < car->_speed_x) 
+    {
+        return car->_gear + 1;
+    } 
+    else 
+    {
+        float gr_down = car->_gearRatio[car->_gear + car->_gearOffset - 1];
+        omega = car->_enginerpmRedLine/gr_down;
+        /* If current gear is greater than one, check if current speed is lower than 
+        allowed speed with the next lower gear. If so, shift down. */
+        if (car->_gear > 1 && omega*wr*SHIFT > car->_speed_x + SHIFT_MARGIN) 
+        {
+            return car->_gear - 1;
+        }
+    }
+    /* If all of the above didn't apply, return the current gear. */
+    return car->_gear;
+}        
