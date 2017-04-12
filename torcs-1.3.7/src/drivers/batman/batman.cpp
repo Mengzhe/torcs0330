@@ -42,11 +42,11 @@ static Driver *driver[NBBOTS];
 static void initTrack(int index, tTrack* track,
                       void *carHandle, void **carParmHandle, tSituation *s);
 static void newRace(int index, tCarElt* car, tSituation *s);
-static void drive(int index, tCarElt* car, tSituation *s);
+static void drive(int index , tCarElt* car, tSituation *s);
 static int  pitcmd(int index, tCarElt* car, tSituation *s);
 static void shutdown(int index);
 static int InitFuncPt(int index, void *pt);
-static void endRace(int index, tCarElt *car, tSituation *s);
+static void endRace(int index, tCarElt* car,  tSituation *s);
 
 /* 
  * Module entry point  
@@ -108,21 +108,21 @@ static void newRace(int index, tCarElt* car, tSituation *s)
 /* Drive during race. */
 static void drive(int index, tCarElt* car, tSituation *s)
 {
-    driver[index]->drive(car, s);
+    driver[index]->drive(s);
 }
 
 
 /* Pitstop callback */
 static int pitcmd(int index, tCarElt* car, tSituation *s)
 {
-    return driver[index]->pitCommand(car, s);
+    return driver[index]->pitCommand(s);
 }
 
 
 /* End of the current race */
-static void endRace(int index, tCarElt *car, tSituation *s)
+static void endRace(int index, tCarElt* car, tSituation *s)
 {
-    driver[index]->endRace(car, s);
+    driver[index]->endRace(s);
 }
 
 
